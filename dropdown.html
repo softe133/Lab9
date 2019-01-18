@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Populate City Dropdown Using jQuery Ajax</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+    function addCombo() {
+    var textb = document.getElementById("txtCombo");
+    var combo = document.getElementById("combo");
+    
+    var option = document.createElement("option");
+    option.text = textb.value;
+    option.value = textb.value;
+    try {
+        combo.add(option, null); //Standard 
+    }catch(error) {
+        combo.add(option); // IE only
+    }
+    textb.value = "";
+}
+
+$(document).ready(function(){
+    $("select.country").change(function(){
+        var selectedCountry = $(".country option:selected").val();
+        $.ajax({
+            type: "POST",
+            url: "dropdown.php",
+            data: { country : selectedCountry } 
+        }).done(function(data){
+            $("#response").html(data);
+        });
+    });
+});
+
+</script>
+</head>
+<body>
+<form>
+    <table>
+        <tr>
+            <td>
+             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<label>Country:</label>
+            Add to Combo: <input type="text" name="txtCombo" id="txtCombo"/>
+            <input type="button" value="Add" onclick="addCombo()">
+            <br/><br/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            Country:<select name="combo" id="combo" class="country"></select>
+            </td>
+            <td id="response">
+                <!--Response will be inserted here-->
+            </td>
+        </tr>
+    </table>
+</form>
+</body> 
+</html>

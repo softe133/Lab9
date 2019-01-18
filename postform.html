@@ -1,0 +1,109 @@
+<html>
+<head>
+	<title>Posting form to php page</title>
+	<!-- Include Jquery library-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- include JQuery file containing AJAX code for form posting -->
+    <script src="insertval.js" type="text/javascript"></script> 
+    <style type="text/css">
+*
+{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: helvetica;
+
+}
+body{
+background-color: pink;
+
+}
+.main
+{
+width: 500px;
+margin: 50px auto;
+border-radius: 10px;
+border:3px solid #dc143c;
+background-color: #fffaf0;
+border-radius: 10px;
+border-left: 40px solid #dc143c;
+}
+.info{
+width: 100%;
+padding: 8px;
+background-color: #dc143c;
+
+
+font-size: 20px;
+font-weight: bold;
+text-align: center;
+color: #fff;
+text-shadow: 1px 1px 2px #000;
+
+}
+.form-box
+{
+padding: 25px;
+}
+label
+{
+color: navy;
+font-size: 20px;
+}
+.inp,#msg-box{
+width: 100%;
+padding: 10px;
+margin-bottom: 5px;
+margin-top: 3px;
+border:2px solid #dc143c;
+border-radius: 5px;
+font-weight: bold;
+border-right: 20px solid #dc143c;
+border-left: 20px solid #dc143c;
+color: navy;
+}
+.inp:focus, #msg-box:focus{
+outline: none;
+border:2px solid navy;
+border-right: 20px  solid navy;
+border-left: 20px  solid navy;
+}
+#msg-box{
+resize: none;
+height: 80px;
+}
+.sub-btn
+{
+width: 100%;
+padding: 10px;
+margin-top: 5px;
+border:none;
+border-radius: 5px;
+background:linear-gradient(#dc133c,#800000);
+}
+.sub-btn:hover
+{
+background:linear-gradient(#800000,#dc133c);
+}
+</style>
+</head>
+
+<body>
+<!-- <form action="postform.php" method="post"> -->
+<div class="main">
+<div class="info">Give your feedback</div>
+<form action="postform.php" method="post" name="form" class= "form-box">
+<label for="name">Name</label><br>
+<input type="text" name="name" class="inp" id="name" placeholder="enter your name" required><br>
+<label for="email">Email_ID</label><br>
+<input type="email" name="email" class="inp" id="email" placeholder="enter your email" required><br>
+<label for="phone">Phone</label><br>
+<input type="tel" name="phone" class="inp" id="phone" placeholder="enter your phone" required><br>
+<label for="message">Message</label><br>
+<textarea name="msg" id="msg-box"  placeholder="enter your message here…."></textarea><br>
+<input type="submit" name="submit" id="submit" value="send" class="sub-btn">
+</form>
+</div>
+</body>
+</html>
